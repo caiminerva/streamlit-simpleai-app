@@ -1,7 +1,5 @@
-streamlit
-openai
-requests
-os
-pillow
-io
-streamlit_option_menu
+openai==0.27.4
+Pillow==9.5.0
+requests==2.28.2
+streamlit==1.21.0
+streamlit_option_menu==0.3.2

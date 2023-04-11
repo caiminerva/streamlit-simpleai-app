@@ -1,0 +1,7 @@
+streamlit
+openai
+requests
+os
+pillow
+io
+streamlit_option_menu

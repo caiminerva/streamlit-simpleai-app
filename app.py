@@ -8,7 +8,7 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 
 # Set OpenAI API key
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = "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"
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Define Streamlit app

@@ -7,9 +7,7 @@ from io import BytesIO
 import streamlit as st
 from streamlit_option_menu import option_menu
 
-# Set OpenAI API key
-os.environ["OPENAI_API_KEY"] = "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"
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = st.secrets["openai"]["api_key"]
 
 # Define Streamlit app
 def app():

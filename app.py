@@ -24,7 +24,7 @@ def app():
 
     if selected == "Home":
         st.title("Welcome to SimpleAI!")
-        st.subheader("By: John Cairo Minerva BSCS 3A-AI)
+        st.subheader("By: John Cairo Minerva BSCS 3A-AI")
         st.write("""The SimpleAI is an app that allows users to generate 
             Python code, explain topics at different educational levels, and generate 
             images based on a topic using OpenAI's text and image generation models. 

@@ -149,6 +149,37 @@ def app():
             response = requests.get(image_url)
             img = Image.open(BytesIO(response.content))
             st.image(img, caption=f"Visualization of '{topic}'")
+    
+    elif selected == "Language Translator":
+       # Define a function to translate text using GPT-3
+       def translate_text(prompt, target_language):
+           response = openai.Completion.create(
+               engine="text-davinci-002",
+               prompt=f"Translate the following text from {target_language} to English:\n{prompt}",
+               max_tokens=2048,
+               n=1,
+               stop=None,
+               temperature=0.5,
+           )
+           return response.choices[0].text.strip()
+        
+       st.title('Penta Lingo')
+       st.write(""" Penta Lingo lets you translate text from five different languages 
+       such as Japanese, Spanish, Korean, French, and Filipino to English. You can 
+       enter some text to translate in the text input field and select the language 
+       you want to translate from using the dropdown menu. When you're ready to
+       translate, click the "Submit" button and the app will show you the translation 
+       in English.
+       """)
+       text = st.text_input('Enter some text to translate:')
+       target_languages = ['Japanese', 'Spanish', 'Korean', 'French', 'Filipino']
+       target_language = st.selectbox('Select a target language:', target_languages)
+       submit_button = st.button('Submit')
+
+       if submit_button and text:
+           translation = translate_text(text, target_language)
+           st.write(f'Translation from {target_language} to English:')
+           st.write(translation)
 
 # Run Streamlit app
 if __name__ == "__main__":

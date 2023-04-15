@@ -16,8 +16,8 @@ def app():
     with st.sidebar:
         selected = option_menu(
             menu_title="Main Menu",
-            options=["Home", "Python Code Generator", "Topic Explanator", "AI Image Generator"],
-            icons=["house-fill", "laptop-fill", "book-fill", "brush-fill"],
+            options=["Home", "Python Code Generator", "Topic Explanator", "AI Image Generator", "Language Translator"],
+            icons=["house", "laptop", "book", "brush", "translate"],
             menu_icon='cast',
             default_index=0
         )

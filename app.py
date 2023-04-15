@@ -36,7 +36,7 @@ def app():
         """)
 
     elif selected == "Python Code Generator":
-        st.title("Welcome to Python Guru")
+        st.title("Python Guru")
         st.write(""" Python Guru is a tool that helps you generate 
             Python code. You input instructions for the code you want to 
             create using the text box. When you're finished, you click 
@@ -85,7 +85,7 @@ def app():
             st.code(output, language='python')
 
     elif selected == "Topic Explanator":
-        st.title("Welcome to 6 Levels")
+        st.title("6 Leveled Virtuoso")
         st.write(""" Have you watched the "5 Levels" playlist of WIRED in 
             YouTube? This tool is similar to that in which it allows users 
             to generate explanations of various topics at different educational 
@@ -124,7 +124,7 @@ def app():
             output_container.write(explanation)
 
     elif selected == "AI Image Generator":
-        st.title("Welcome to Imagination Visualizer")
+        st.title("Imagination Visualizer")
         st.write(""" The Imagination Visualizer is tool that lets you 
         create an image based on a topic that you input. You simply type 
         in a topic you want to visualize, click the button, and the tool 

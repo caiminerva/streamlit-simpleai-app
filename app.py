@@ -28,8 +28,8 @@ def app():
         st.write("""The SimpleAI is an app that allows users to generate 
             Python code, explain topics at different educational levels, generate 
             images based on a topic using OpenAI's text and image generation models,
-            translate five various languages to English and a storyteller tool. Users  
-            can input instructions for the code they want to create, input a topic and  
+            translate five various languages to English and a storyteller tool. Users 
+            can input instructions for the code they want to create, input a topic and 
             topic at the selected level, and input a topic to generate an image related 
             select an educational level to generate a written explanation of the to that
             topic. The app uses artificial intelligence to generate the code, explanations,

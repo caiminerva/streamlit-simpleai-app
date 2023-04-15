@@ -16,8 +16,8 @@ def app():
     with st.sidebar:
         selected = option_menu(
             menu_title="Main Menu",
-            options=["Home", "Python Code Generator", "Topic Explanator", "AI Image Generator", "Language Translator"],
-            icons=["house", "laptop", "book", "brush", "translate"],
+            options=["Home", "Python Code Generator", "Topic Explanator", "AI Image Generator", "Language Translator", "Story Prompt Generator"],
+            icons=["house", "laptop", "book", "brush", "translate", "chat-left-dots"],
             menu_icon='cast',
             default_index=0
         )
@@ -26,13 +26,15 @@ def app():
         st.title("Welcome to SimpleAI!")
         st.subheader("By: John Cairo Minerva BSCS 3A-AI")
         st.write("""The SimpleAI is an app that allows users to generate 
-            Python code, explain topics at different educational levels, and generate 
-            images based on a topic using OpenAI's text and image generation models. 
-            Users can input instructions for the code they want to create, input a topic 
-            and select an educational level to generate a written explanation of the 
+            Python code, explain topics at different educational levels, generate 
+            images based on a topic using OpenAI's text and image generation models,
+            translate five various languages to English and a storyteller tool. Users  
+            can input instructions for the code they want to create, input a topic and  
             topic at the selected level, and input a topic to generate an image related 
-            to that topic. The app uses artificial intelligence to generate the code, 
-            explanations, and images and displays them for the user to see.
+            select an educational level to generate a written explanation of the to that
+            topic. The app uses artificial intelligence to generate the code, explanations,
+            creates images and displays them for the user to see, translates and makes 
+            storytelling prompts for its user.
         """)
 
     elif selected == "Python Code Generator":
@@ -181,6 +183,39 @@ def app():
            st.write(f'Translation from {target_language} to English:')
            st.write(translation)
 
+    elif selected == "Story Prompt Generator":
+       # Define function to generate story prompts
+       def generate_story_prompts(prompt, additional_ideas):
+           response = openai.Completion.create(
+               engine="davinci",
+               prompt=prompt + additional_ideas,
+               max_tokens=100,
+               n=1,
+               stop=None,
+               temperature=0.5,
+           )
+           return response.choices[0].text.strip()
+
+       # Set up Streamlit app
+       st.title("ImagiStory - AI Storyteller")
+
+       # Prompt user for input
+       prompt = st.text_input("Enter a genre or theme for your story:")
+       additional_ideas = st.text_area("Enter any additional ideas or keywords for your story (optional):")
+
+       # Generate story prompts when user clicks button
+       if st.button("Generate Story Prompts"):
+           if not prompt:
+               st.warning("Please enter a genre or theme for your story.")
+           else:
+               st.write("Here are some story prompts based on your input:")
+               generated_prompts = set()
+               while len(generated_prompts) < 5:
+                   new_prompt = generate_story_prompts(prompt, additional_ideas)
+                   if new_prompt not in generated_prompts:
+                       generated_prompts.add(new_prompt)
+                       st.write(new_prompt)    
+            
 # Run Streamlit app
 if __name__ == "__main__":
     app()
